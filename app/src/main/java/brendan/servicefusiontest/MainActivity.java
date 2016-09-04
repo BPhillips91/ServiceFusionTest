@@ -15,6 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -44,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecycler.setLayoutManager(mLayoutManager);
-        mPersonsList = new ArrayList<>();
-        mPersonsKeys = new ArrayList<>();
+
         updateAdapter();
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddPerson.class);
                 startActivity(intent);
+            }
+        });
+
+        personsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                updateAdapter();
+                Log.d(TAG, "onDataChange: "+dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
@@ -79,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void updateAdapter(){
+        mPersonsList = new ArrayList<>();
+        mPersonsKeys = new ArrayList<>();
+
      ChildEventListener mChildListener = new ChildEventListener() {
          @Override
          public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -115,5 +132,6 @@ public class MainActivity extends AppCompatActivity {
          }
      };
      personsRef.addChildEventListener(mChildListener);
+
  }
 }
