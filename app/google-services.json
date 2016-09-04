@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "871906926536",
+    "firebase_url": "https://servicefusiontest-44fdc.firebaseio.com",
+    "project_id": "servicefusiontest-44fdc",
+    "storage_bucket": "servicefusiontest-44fdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871906926536:android:7fd6e41937d78adb",
+        "android_client_info": {
+          "package_name": "brendan.servicefusiontest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871906926536-a7jt9sr7evp0dbvgnrmfa8cacg6qlhbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaZinIaz_1xMy725HBDqc03EDSnzLrQ7s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
